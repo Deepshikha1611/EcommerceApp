@@ -8,9 +8,9 @@ public class LoginSystem {
    
 	private static Map<String, User> users = new HashMap<>();
     public boolean registerUser(Scanner scanner) {
-        System.out.print("Enter a username: ");
+        System.out.print("Enter a username: \n");
         String username = scanner.nextLine();
-        System.out.print("Enter a password: ");
+        System.out.print("Enter a password: \n");
         String password = scanner.nextLine();
 
         if (users.containsKey(username)) {
