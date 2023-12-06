@@ -1,0 +1,103 @@
+@startuml
+
+class Customer {
+  -customerId: int
+  -customerName: String
+  -customerEmail: String
+  -customerAddress: String
+  +getCustomerId(): int
+  +getCustomerName(): String
+  +getCustomerEmail(): String
+  +getCustomerAddress(): String
+}
+
+class Product {
+  -productId: int
+  -productName: String
+  -productPrice: double
+  +getProductId(): int
+  +getProductName(): String
+  +getProductPrice(): double
+}
+
+class ShoppingCart {
+  -cartId: int
+  -cartItems: Map<Product, Integer>
+  +addItem(product: Product, quantity: int): void
+  +removeItem(product: Product): void
+  +updateQuantity(product: Product, quantity: int): void
+  +getTotal(): double
+}
+
+class Order {
+  -orderId: int
+  -customer: Customer
+  -orderItems: Map<Product, Integer>
+  +getOrderId(): int
+  +getCustomer(): Customer
+  +getOrderItems(): Map<Product, Integer>
+  +addProduct(product: Product, quantity: int): void
+}
+
+class Payment {
+  -paymentId: int
+  -order: Order
+  -paymentAmount: double
+  -paymentDate: Date
+  +processPayment(order: Order, paymentAmount: double): boolean
+  +refundPayment(order: Order, refundAmount: double): boolean
+}
+
+class Shipping {
+  -shippingId: int
+  -order: Order
+  -shippingDate: Date
+  -shippingStatus: String
+  +scheduleShipping(order: Order, shippingDate: Date): void
+  +trackShipping(order: Order): String
+}
+
+class ProductCatalog {
+  +getProduct(productId: int): Product
+  +getProductsByCategory(category: Category): List<Product>
+}
+
+class UserAccount {
+  -username: String
+  -password: String
+  -email: String
+  +login(username: String, password: String): boolean
+  +logout(): void
+}
+
+class Inventory {
+  +updateStock(product: Product, quantity: int): void
+  +generateLowStockAlert(product: Product): void
+}
+
+class DiscountCoupon {
+  -couponCode: String
+  -discountPercentage: double
+  -expirationDate: Date
+}
+
+class Review {
+  -reviewId: int
+  -product: Product
+  -customer: Customer
+  -rating: int
+  -reviewText: String
+}
+
+Customer "1" -- "*" Order : places
+Order "1" -- "*" Product : includes
+Order "1" -- "0..1" Payment : has payment
+Order "1" -- "0..1" Shipping : has shipping
+ShoppingCart "1" -- "*" Product : contains
+ProductCatalog "1" -- "*" Product : provides
+UserAccount "1" -- "1..*" Order : tracks
+Inventory "1" -- "*" Product : manages
+Order "0..1" -- "*" DiscountCoupon : applies
+Review "0..*" -- "1" Product : reviews
+
+@enduml
