@@ -19,8 +19,7 @@ The application will tell the total check out amount. It will further have other
      Activity diagram shows the flow of the activities. It represents the order in which the activities will happen and also shows the decisions and iterations.
      Use Case diagram shows how various users interact with the system. It has the actors and the use cases and shows the interaction between them.
    
-     Currently created: Class Diagram, Activity Diagram and Use case Diagram.
-     Will add the Deployment Diagram later
+     Currently created: Class Diagram, Activity Diagram, Component Diagram and Use case Diagram.
   
      [Link to access the UML Diagrams](https://github.com/Deepshikha1611/EcommerceApp/tree/master/UML%20Diagrams)
 
