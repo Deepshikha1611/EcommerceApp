@@ -1,0 +1,41 @@
+@startuml
+package "E-commerce Website" {
+  
+  [Client]
+  [Web Browser]
+
+  [User Interface]
+  [Order Management]
+  [Product Catalog]
+  [Payment Processing]
+  [Payment Gateway]
+  [Shipping Service]
+
+  [Web Server]
+  [Application Server]
+
+  [Database]
+
+  [Payment API]
+  [Shipping Carrier API]
+  [External System for Shipping]
+}
+
+[User Interface] --> [Web Browser]
+[Order Management] --> [Database]
+[Product Catalog] --> [Database]
+[Payment Processing] --> [Payment Gateway]
+[External System for Shipping] --> [Shipping Carrier API]
+[Payment Gateway] --> [Payment API]
+
+[Web Server] --> [Application Server]
+[Application Server] --> [Order Management]
+[Application Server] --> [Product Catalog]
+[Application Server] --> [Payment Processing]
+[Application Server] --> [Shipping Service]
+
+[Shipping Service] --> [External System for Shipping]
+
+[Web Browser] --> [Client]
+[Client] --> [Web Server]
+@enduml
