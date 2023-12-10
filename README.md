@@ -1,8 +1,7 @@
 # EcommerceApp
 Ecommerce Console Application
 
-This is an Ecommerce Console Application. The user can register, login and then add the items to the shopping cart.
-The application will tell the total check out amount. It will further have other features like discounts and offers applied on items during sale.
+This is a console-based E-commerce application that provides users with the ability to register and log in. Once logged in, users can browse items and add them to their shopping cart. The application calculates and displays the total checkout amount. Additionally, it features special discounts and offers applied to items during sales.
 
 **Language used**: Java
 
