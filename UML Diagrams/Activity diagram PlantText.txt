@@ -1,0 +1,37 @@
+@startuml
+start
+:Visit Ecommerce Wbsite;
+if (Not Logged In?) then (yes)
+  :Login;
+  if (New User?) then (yes)
+    :Register New User;
+    :Login; 
+  endif
+else (no)
+  :Browse Product Catalog;
+  :View Product Details;
+  :Add Product to Shopping Cart;
+  if (Not Logged In?) then (yes)
+    :Login;
+  else (no)
+    :View Shopping Cart;
+    :Update/Remove Items in Shopping Cart;
+    if (Cart Empty?) then (no)
+      :Proceed to Checkout;
+      :Provide Shipping Details;
+      :Choose Shipping Service;
+      :Provide Payment Details;
+      :Process Payment through Gateway;
+      :Confirm and Place Order;
+      :Order Confirmation;
+      :Order Tracking;
+      :Deliver Order to Customer;
+      :Receive Product Review/Feedback;
+    else (yes)
+      :End Shopping;
+    endif
+    :Logout;
+  endif
+endif
+stop
+@enduml

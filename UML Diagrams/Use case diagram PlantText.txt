@@ -1,0 +1,58 @@
+@startuml
+left to right direction
+
+actor Customer as C
+actor Admin as A
+
+rectangle "E-commerce System" {
+  usecase "Browse Products" as BP
+  usecase "View Product Details" as VPD
+  usecase "Add to ShoppingCart" as ATSC
+  usecase "Remove from ShoppingCart" as RFSC
+  usecase "View ShoppingCart" as VSC
+  usecase "Place Order" as PO
+  usecase "Proceed to checkout" as PC
+  usecase "Track Order" as TO
+  usecase "Write Review" as WR
+}
+
+rectangle "Product Management" {
+  usecase "Manage ProductCatalog" as MPC
+  usecase "Manage Inventory" as MI
+}
+
+rectangle "Order Management" {
+  usecase "Manage Orders" as MO
+  usecase "Manage Delivery" as MD
+}
+
+rectangle "Account Management" {
+  usecase "Manage UserAccount" as MUA
+  usecase "Apply DiscountCoupon" as ADC
+}
+
+rectangle "External Systems" {
+  usecase "Payment Gateway" as PG
+  usecase "Delivery Service" as DS
+}
+
+C --|> BP
+C --|> VPD
+C --|> ATSC
+C --|> RFSC
+C --|> VSC
+C --|> PO
+C --|> PC
+C --|> TO
+C --|> WR
+
+C --> ADC : Applies
+A --|> MPC
+A --|> MI
+A --|> MO
+A --|> MD
+A --|> MUA
+
+MD --|>DS : Delivers Order
+PC --|>PG : Make Payment
+@enduml
